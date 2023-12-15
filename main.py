@@ -13,5 +13,6 @@ def print_hi(name):
 if __name__ == '__main__':
     print("Hey, this is Lev who is in love with mendy")
     print("kyle is here")
+    print("Hey lev, I love you too <3")
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
