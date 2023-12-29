@@ -1,22 +1,31 @@
-from tkinter import *
+from tkinter import *  # line1 imports every thing from the tkinter file
 
-# line1 imports every thing from the tkinter file
 
-window = Tk()
-# creates a window
+window = Tk()  # creates a window
 
-window.title("Calculator app")
-# gives window a name
 
-e = Entry(window, width=35, borderwidth=5)
-e.grid(row=0, column=0, columnspan=4, padx=10, pady=10)
+window.title("Calculator app")  # gives window a name
+
+
+e = Entry(window, width=35, borderwidth=5)  # This creates a place for the user to enter values
+e.grid(row=0, column=0, columnspan=4, padx=10, pady=10)  # This places e within the window at a specified place
 
 def click_button(num):
+    """
+    This function will act as the command for multiple buttons and allows the user to input values using button
+    :param num: the symbol associated with said button
+    :return: inserts the symbol with previous text
+    """
     current = e.get()
     e.delete(0, END)
     e.insert(0, current + num)
 
 def clear_button():
+    """
+    This is the command for the clear button
+    It empties e (the entry space on the window)
+    :return:
+    """
     e.delete(0, END)
 
 button1 = Button(window, text='1', padx=40, pady=20, command= lambda: click_button('1'))
