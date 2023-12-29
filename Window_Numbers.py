@@ -1,4 +1,5 @@
 from tkinter import *
+
 # line1 imports every thing from the tkinter file
 
 window = Tk()
@@ -11,25 +12,24 @@ e = Entry(window, width=35, borderwidth=5)
 e.grid(row=0, column=0, columnspan=4, padx=10, pady=10)
 
 def click_button(num):
-    if e.get != "":
-        current= e.get
-        e.delete(0, END)
-        e.insert(0, str(current)+str(num))
-    else:
-        e.insert(0,str(num))
+    current = e.get()
+    e.delete(0, END)
+    e.insert(0, current + num)
 
+def clear_button():
+    e.delete(0, END)
 
-button1 = Button(window, text='1', padx=40, pady=20, command= lambda: click_button(1) )
-button2 = Button(window, text='2', padx=40, pady=20, command= lambda: click_button(2))
-button3 = Button(window, text='3', padx=40, pady=20, command= lambda: click_button(3))
-button4 = Button(window, text='4', padx=40, pady=20, command= lambda: click_button(4))
-button5 = Button(window, text='5', padx=40, pady=20, command= lambda: click_button(5))
-button6 = Button(window, text='6', padx=40, pady=20, command= lambda: click_button(6))
-button7 = Button(window, text='7', padx=40, pady=20, command= lambda: click_button(7))
-button8 = Button(window, text='8', padx=40, pady=20, command= lambda: click_button(8))
-button9 = Button(window, text='9', padx=40, pady=20, command= lambda: click_button(9))
-button0 = Button(window, text='0', padx=40, pady=20, command= lambda: click_button(0))
-clear_button = Button(window, text='Clear', padx=79, pady=20, command= lambda: click_button(9))
+button1 = Button(window, text='1', padx=40, pady=20, command= lambda: click_button('1'))
+button2 = Button(window, text='2', padx=40, pady=20, command= lambda: click_button('2'))
+button3 = Button(window, text='3', padx=40, pady=20, command= lambda: click_button('3'))
+button4 = Button(window, text='4', padx=40, pady=20, command= lambda: click_button('4'))
+button5 = Button(window, text='5', padx=40, pady=20, command= lambda: click_button('5'))
+button6 = Button(window, text='6', padx=40, pady=20, command= lambda: click_button('6'))
+button7 = Button(window, text='7', padx=40, pady=20, command= lambda: click_button('7'))
+button8 = Button(window, text='8', padx=40, pady=20, command= lambda: click_button('8'))
+button9 = Button(window, text='9', padx=40, pady=20, command= lambda: click_button('9'))
+button0 = Button(window, text='0', padx=40, pady=20, command= lambda: click_button('0'))
+clear_button = Button(window, text='Clear', padx=79, pady=20, command= clear_button)
 # defines the buttons
 
 button1.grid(row=3, column=0)
