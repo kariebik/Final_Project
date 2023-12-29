@@ -39,7 +39,7 @@ button7 = Button(window, text='7', padx=40, pady=20, command= lambda: click_butt
 button8 = Button(window, text='8', padx=40, pady=20, command= lambda: click_button('8'))
 button9 = Button(window, text='9', padx=40, pady=20, command= lambda: click_button('9'))
 button0 = Button(window, text='0', padx=40, pady=20, command= lambda: click_button('0'))
-clear_button = Button(window, text='Clear', padx=79, pady=20, command= clear_button)
+clear_button = Button(window, text='Clear', padx=90, pady=20, command= clear_button)
 
 button1.grid(row=3, column=0)  # This places button within the window at a specified place
 button2.grid(row=3, column=1)
