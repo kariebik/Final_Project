@@ -1,5 +1,5 @@
 from tkinter import *  # line1 imports every thing from the tkinter file
-
+import math
 
 window = Tk()  # creates a window
 
@@ -28,6 +28,7 @@ def clear_button():
     """
     e.delete(0, END)
 
+# defines the buttons
 button1 = Button(window, text='1', padx=40, pady=20, command= lambda: click_button('1'))
 button2 = Button(window, text='2', padx=40, pady=20, command= lambda: click_button('2'))
 button3 = Button(window, text='3', padx=40, pady=20, command= lambda: click_button('3'))
@@ -39,9 +40,8 @@ button8 = Button(window, text='8', padx=40, pady=20, command= lambda: click_butt
 button9 = Button(window, text='9', padx=40, pady=20, command= lambda: click_button('9'))
 button0 = Button(window, text='0', padx=40, pady=20, command= lambda: click_button('0'))
 clear_button = Button(window, text='Clear', padx=79, pady=20, command= clear_button)
-# defines the buttons
 
-button1.grid(row=3, column=0)
+button1.grid(row=3, column=0)  # This places button within the window at a specified place
 button2.grid(row=3, column=1)
 button3.grid(row=3, column=2)
 
