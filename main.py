@@ -57,6 +57,10 @@ button0.grid(row=4, column=0)
 clear_button.grid(row=4, column=1, columnspan=2)
 
 def add_button():
+    """
+    This is the function for the add button. It save the value on the calculator and tells the equals button how to react
+    :return:
+    """
     first_number = e.get()
     global f_num
     global symbol
@@ -65,6 +69,10 @@ def add_button():
     symbol = "+"
 
 def equals_button():
+    """
+    This is the command for the equals button. Its action changes depending on the value of symbol to know how to react to the previous button.
+    :return:
+    """
     if symbol == "+":
         second_number = eval(e.get())
         e.delete(0, END)
