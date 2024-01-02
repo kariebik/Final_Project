@@ -56,5 +56,25 @@ button9.grid(row=1, column=2)
 button0.grid(row=4, column=0)
 clear_button.grid(row=4, column=1, columnspan=2)
 
+def add_button():
+    first_number = e.get()
+    global f_num
+    global symbol
+    f_num = eval(first_number)
+    e.delete(0, END)
+    symbol = "+"
+
+def equals_button():
+    if symbol == "+":
+        second_number = eval(e.get())
+        e.delete(0, END)
+        e.insert(0, str(f_num + second_number))
+
+
+button_add = Button(window, text='+', padx=40, pady=20, command= add_button)
+button_add.grid(row=5, column=0)
+
+eq_button = Button(window, text='=', padx=100, pady=20, command= equals_button)
+eq_button.grid(row=5, column=1, columnspan=2)
 
 window.mainloop()
