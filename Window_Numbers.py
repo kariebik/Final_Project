@@ -78,4 +78,7 @@ button_add.grid(row=5, column=0)
 eq_button = Button(window, text='=', padx=100, pady=20, command= equals_button)
 eq_button.grid(row=5, column=1, columnspan=2)
 
+
+
+
 window.mainloop()
