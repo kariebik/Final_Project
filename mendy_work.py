@@ -1,6 +1,5 @@
 import math
-
-angle_in_degrees = 55
+angle_in_degrees = 45
 angle_in_radians = math.radians(angle_in_degrees)
 
 sin_value = math.sin(angle_in_radians)
