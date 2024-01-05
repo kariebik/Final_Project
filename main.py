@@ -39,6 +39,9 @@ button7 = Button(window, text='7', padx=40, pady=20, command= lambda: click_butt
 button8 = Button(window, text='8', padx=40, pady=20, command= lambda: click_button('8'))
 button9 = Button(window, text='9', padx=40, pady=20, command= lambda: click_button('9'))
 button0 = Button(window, text='0', padx=40, pady=20, command= lambda: click_button('0'))
+button_sin = Button(window, text='sin', padx=40, pady=20, command= lambda: click_button('sin'))
+button_cos = Button(window, text='cos', padx=40, pady=20, command= lambda: click_button('cos'))
+button_tan = Button(window, text='tan', padx=40, pady=20, command= lambda: click_button('tan'))
 clear_button = Button(window, text='Clear', padx=90, pady=20, command= clear_button)
 
 button1.grid(row=3, column=0)  # This places button within the window at a specified place
@@ -54,7 +57,11 @@ button8.grid(row=1, column=1)
 button9.grid(row=1, column=2)
 
 button0.grid(row=4, column=0)
+button_sin.grid(row=5, column=0)
+button_cos.grid(row=5, column=1)
+button_tan.grid(row=5, column=2)
 clear_button.grid(row=4, column=1, columnspan=2)
+
 
 def add_button():
     """
