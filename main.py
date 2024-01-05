@@ -57,9 +57,9 @@ button8.grid(row=1, column=1)
 button9.grid(row=1, column=2)
 
 button0.grid(row=4, column=0)
-button_sin.grid(row=5, column=0)
-button_cos.grid(row=5, column=1)
-button_tan.grid(row=5, column=2)
+button_sin.grid(row=1, column=3)
+button_cos.grid(row=2, column=3)
+button_tan.grid(row=3, column=3)
 clear_button.grid(row=4, column=1, columnspan=2)
 
 
