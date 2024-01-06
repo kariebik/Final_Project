@@ -78,7 +78,78 @@ button_add.grid(row=5, column=0)
 eq_button = Button(window, text='=', padx=100, pady=20, command= equals_button)
 eq_button.grid(row=5, column=1, columnspan=2)
 
+import math
+def log_button():
+    global f_num
+    f_num = eval(e.get())
+    result = math.log10(f_num)
+    e.delete(0, END)
+    e.insert(0, str(result))
 
-
+button_log = Button(window, text='log', padx=40, pady=20, command=log_button)
+button_log.grid(row=1, column=4)
 
 window.mainloop()
+
+def logx_button():
+    global f_num
+    f_num = eval(e.get())
+    result = math.logx(f_num)
+    e.delete(0, END)
+    e.insert(0, str(result))
+
+button_logx = Button(window, text='logx', padx=40, pady=20, command=logx_button)
+button_logx.grid(row=1, column=5)
+
+def solve_quadratic():
+    a = float(e.get())
+    b = float(e.get())
+    c = float(e.get())
+
+    discriminant = b**2 - 4*a*c
+
+    if discriminant < 0:
+        messagebox.showinfo("Solution", "No real solutions.")
+    elif discriminant == 0:
+        solution = -b / (2*a)
+        messagebox.showinfo("Solution", f"One real solution: {solution}")
+    else:
+        solution1 = (-b + math.sqrt(discriminant)) / (2*a)
+        solution2 = (-b - math.sqrt(discriminant)) / (2*a)
+        messagebox.showinfo("Solution", f"Two real solutions: {solution1} and {solution2}")
+
+def solve_cubic():
+    # Add your code to solve cubic equations here
+    pass
+
+# Define buttons
+button1 = Button(window, text='1', padx=40, pady=20, command=lambda: click_button(1))
+button2 = Button(window, text='2', padx=40, pady=20, command=lambda: click_button(2))
+button3 = Button(window, text='3', padx=40, pady=20, command=lambda: click_button(3))
+button4 = Button(window, text='4', padx=40, pady=20, command=lambda: click_button(4))
+button5 = Button(window, text='5', padx=40, pady=20, command=lambda: click_button(5))
+button6 = Button(window, text='6', padx=40, pady=20, command=lambda: click_button(6))
+button7 = Button(window, text='7', padx=40, pady=20, command=lambda: click_button(7))
+button8 = Button(window, text='8', padx=40, pady=20, command=lambda: click_button(8))
+button9 = Button(window, text='9', padx=40, pady=20, command=lambda: click_button(9))
+button0 = Button(window, text='0', padx=40, pady=20, command=lambda: click_button(0))
+button_sin = Button(window, text='sin', padx=40, pady=20, command=lambda: click_button('sin'))
+button_cos = Button(window, text='cos', padx=40, pady=20, command=lambda: click_button('cos'))
+button_tan = Button(window, text='tan', padx=40, pady=20, command=lambda: click_button('tan'))
+button_log = Button(window, text='log', padx=40, pady=20, command=log_button)
+solver_button = Button(window, text='Solver', padx=40, pady=20, command=solver_button)
+clear_button = Button(window, text='Clear', padx=90, pady=20, command=clear_button)
+button_add = Button(window, text='+', padx=40, pady=20, command=add_button)
+
+buttons = [
+    (button1, 3, 0), (button2, 3, 1), (button3, 3, 2), (button4, 2, 0),
+    (button5, 2, 1), (button6, 2, 2), (button7, 1, 0), (button8, 1, 1),
+    (button9, 1, 2), (button0, 4, 0), (button_sin, 1, 3), (button_cos, 2, 3),
+    (button_tan, 3, 3), (button_log, 4, 1), (solver_button, 4, 2), (button_add, 5, 0)
+]
+
+for (button, row, col) in buttons:
+    button.grid(row=row, column=col)
+
+eq_button = Button(window, text='=', padx=100, pady=20, command=solve_equation)
+eq_button.grid(row=5, column=1, columnspan=2)
