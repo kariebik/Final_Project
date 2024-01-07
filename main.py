@@ -113,5 +113,18 @@ shift = Button(window, text= 'shift', padx=40, pady=20, command= switch_button)
 shift2 = Button(window, text= 'shift', padx=40, pady=20, command= switch_button2)
 
 shift.grid(row=2, column=4)
+def main():
+    global result
+    text = e.get()
+    operation = text[0:3]
+    angle = int(text[3: -1])
+    if operation == "sin":
+        result = math.sin(angle)
+    elif operation == "cos":
+        result = math.cos(angle)
+    elif operation == "tan":
+        result = math.tan(angle)
+    e.delete(0, END)
+    e.insert(0, str(result))
 
 window.mainloop()
