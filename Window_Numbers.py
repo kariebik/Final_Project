@@ -100,6 +100,7 @@ button_log.grid(row=1, column=4)
 
 window.mainloop()
 
+x=int(input("please emter number of your mom)")
 def logx_button():
     global f_num
     f_num = eval(e.get())
