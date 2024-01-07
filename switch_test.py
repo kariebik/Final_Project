@@ -17,28 +17,28 @@ def click_button(num):
     e.delete(0, END)
     e.insert(0, current + num)
 
-button1 = Button(window, text='1', padx=40, pady=20, command= lambda: click_button('1'))
-button2 = Button(window, text='2', padx=40, pady=20, command= lambda: click_button('2'))
+import math
 
 
+button_pi = Button(window, text='π', padx=40, pady=20, command= lambda: click_button(str(math.pi)))
+button_pi.grid(row=1, column=4)
 
+button_e = Button(window, text='e', padx=40, pady=20, command= lambda: click_button(str(math.e)))
 def switch_button():
-    button1.grid_remove()
-    button2.grid(row=3, column=0)
+    button_pi.grid_remove()
+    button_e.grid(row=1, column=4)
     shift.grid_remove()
-    shift2.grid(row=3, column=1)
+    shift2.grid(row=2, column=4)
 
 
 def switch_button2():
-    button2.grid_remove()
-    button1.grid(row=3, column=0)
+    button_e.grid_remove()
+    button_pi.grid(row=1, column=4)
     shift2.grid_remove()
-    shift.grid(row=3, column=1)
+    shift.grid(row=2, column=4)
 
 shift = Button(window, text= 'shift', padx=40, pady=20, command= switch_button)
 shift2 = Button(window, text= 'shift', padx=40, pady=20, command= switch_button2)
 
-shift.grid(row=3, column=1)
-shift2.grid(row=3, column=1)
-button1.grid(row=3, column=0)
+shift.grid(row=2, column=4)
 window.mainloop()

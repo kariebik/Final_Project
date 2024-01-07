@@ -92,4 +92,26 @@ button_add.grid(row=5, column=0)
 eq_button = Button(window, text='=', padx=100, pady=20, command= equals_button)
 eq_button.grid(row=5, column=1, columnspan=2)
 
+button_pi = Button(window, text='π', padx=40, pady=20, command= lambda: click_button(str(math.pi)))
+button_pi.grid(row=1, column=4)
+
+button_e = Button(window, text='e', padx=40, pady=20, command= lambda: click_button(str(math.e)))
+def switch_button():
+    button_pi.grid_remove()
+    button_e.grid(row=1, column=4)
+    shift.grid_remove()
+    shift2.grid(row=2, column=4)
+
+
+def switch_button2():
+    button_e.grid_remove()
+    button_pi.grid(row=1, column=4)
+    shift2.grid_remove()
+    shift.grid(row=2, column=4)
+
+shift = Button(window, text= 'shift', padx=40, pady=20, command= switch_button)
+shift2 = Button(window, text= 'shift', padx=40, pady=20, command= switch_button2)
+
+shift.grid(row=2, column=4)
+
 window.mainloop()
