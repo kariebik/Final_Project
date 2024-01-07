@@ -39,6 +39,8 @@ shift = Button(window, text= 'shift', padx=40, pady=20, command= switch_button)
 shift2 = Button(window, text= 'shift', padx=40, pady=20, command= switch_button2)
 
 shift.grid(row=3, column=1)
-shift2.grid(row=3, column=1)
 button1.grid(row=3, column=0)
+
+button_pi = Button(window, text='π', padx=40, pady=20, command= lambda: click_button('π'))
+button_pi.grid(row=3, column=2)
 window.mainloop()
