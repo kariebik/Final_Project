@@ -128,6 +128,12 @@ def equals_button():
         pwr = eval(text[b1+1:])
         e.delete(0, END)
         e.insert(0, str(base ** pwr))
+    elif symbol == "!":
+        text =e.get()
+        b1 = text.find("!")
+        num = eval(text[0:b1])
+        math.factorial(num)
+
 
 def sqrt_button(num):
     current = e.get()
@@ -256,6 +262,16 @@ def power(NUM):
     e.insert(0, current + NUM)
     global symbol
     symbol = "^"
+
+def factorial_button(num):
+    current = e.get()
+    e.delete(0, END)
+    e.insert(0, current + num)
+    global symbol
+    symbol = "!"
+
+button_factorial = Button(window, text="!", padx=40, pady=20, command=lambda: factorial_button("!"))
+button_factorial.grid(row=4, column=3)
 
 button_x2 = Button(window, text='x^2', padx=40, pady=20, command=lambda: power("^2"))
 button_x3 = Button(window, text='x^3', padx=40, pady=20, command=lambda: power("^3"))

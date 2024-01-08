@@ -157,7 +157,7 @@ for (button, row, col) in buttons:
 
 eq_button = Button(window, text='=', padx=100, pady=20, command=solve_equation)
 eq_button.grid(row=5, column=1, columnspan=2)
- def factorial_button():
+def factorial_button():
     num = int(e.get())
     result = math.factorial(num)
     e.delete(0, END)
