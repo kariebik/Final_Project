@@ -121,6 +121,13 @@ def equals_button():
         second_number = math.cbrt(int(num[2:]))
         e.delete(0, END)
         e.insert(0, str(second_number))
+    elif symbol == "^":
+        text = e.get()
+        b1 = text.find("^")
+        base = int(text[3: b1])
+        pwr = eval(text[b1+1:])
+        e.delete(0, END)
+        e.insert(0, str(base ** pwr))
 
 def sqrt_button(num):
     current = e.get()
@@ -157,6 +164,8 @@ def switch_button():
     button_sin.grid_remove()
     button_cos.grid_remove()
     button_tan.grid_remove()
+    button_x2.grid_remove()
+    button_xy.grid(row=3, column=4)
     button_isin.grid(row=1, column=3)
     button_icos.grid(row=2, column=3)
     button_itan.grid(row=3, column=3)
@@ -169,10 +178,12 @@ def switch_button():
 
 def switch_button2():
     button_e.grid_remove()
+    button_xy.grid_remove()
     logx_button.grid_remove()
     button_isin.grid_remove()
     button_icos.grid_remove()
     button_itan.grid_remove()
+    button_x2.grid(row=3, column=4)
     button_log.grid(row=4, column=4)
     button_sin.grid(row=1, column=3)
     button_cos.grid(row=2, column=3)
@@ -239,4 +250,14 @@ def log_button():
 button_log = Button(window, text='log', padx=40, pady=20, command=log_button)
 button_log.grid(row=4, column=4)
 
+def power(NUM):
+    current = e.get()
+    e.delete(0, END)
+    e.insert(0, current + NUM)
+    global symbol
+    symbol = "^"
+
+button_x2 = Button(window, text='x^2', padx=40, pady=20, command=lambda: power("^2"))
+button_xy = Button(window, text='x^y', padx=40, pady=20, command=lambda: power("^"))
+button_x2.grid(row=3, column=4)
 window.mainloop()
