@@ -42,6 +42,9 @@ button0 = Button(window, text='0', padx=40, pady=20, command= lambda: click_butt
 button_sin = Button(window, text='sin', padx=40, pady=20, command= lambda: SCT('sin'))
 button_cos = Button(window, text='cos', padx=40, pady=20, command= lambda: SCT('cos'))
 button_tan = Button(window, text='tan', padx=40, pady=20, command= lambda: SCT('tan'))
+button_isin = Button(window, text='sin^-1', padx=40, pady=20, command= lambda: ISCT('sin^-1 '))
+button_icos = Button(window, text='cos^-1', padx=40, pady=20, command= lambda: ISCT('cos^-1 '))
+button_itan = Button(window, text='tan^-1', padx=40, pady=20, command= lambda: ISCT('tan^-1 '))
 clear_button = Button(window, text='Clear', padx=90, pady=20, command= clear_button)
 
 button1.grid(row=3, column=0)  # This places button within the window at a specified place
@@ -81,6 +84,13 @@ def SCT(num):
     e.insert(0, current + num)
     global symbol
     symbol = "sct"
+
+def ISCT(num):
+    current = e.get()
+    e.delete(0, END)
+    e.insert(0, current + num)
+    global symbol
+    symbol = "isct"
 
 def equals_button():
     """
@@ -144,6 +154,12 @@ def switch_button():
     button_pi.grid_remove()
     button_sqrt.grid_remove()
     button_log.grid_remove()
+    button_sin.grid_remove()
+    button_cos.grid_remove()
+    button_tan.grid_remove()
+    button_isin.grid(row=1, column=3)
+    button_icos.grid(row=2, column=3)
+    button_itan.grid(row=3, column=3)
     logx_button.grid(row=4, column=4)
     button_e.grid(row=1, column=4)
     button_crt.grid(row=1, column=5)
@@ -154,7 +170,13 @@ def switch_button():
 def switch_button2():
     button_e.grid_remove()
     logx_button.grid_remove()
+    button_isin.grid_remove()
+    button_icos.grid_remove()
+    button_itan.grid_remove()
     button_log.grid(row=4, column=4)
+    button_sin.grid(row=1, column=3)
+    button_cos.grid(row=2, column=3)
+    button_tan.grid(row=3, column=3)
     button_pi.grid(row=1, column=4)
     button_sqrt.grid(row=1, column=5)
     shift2.grid_remove()
@@ -177,6 +199,21 @@ def main():
         result = math.tan(angle)
     e.delete(0, END)
     e.insert(0, str(result))
+
+def imain():
+    global result
+    text = e.get()
+    operation = text[0:7]
+    angle = int(text[7:])
+    if operation == "sin^-1 ":
+        result = math.asin(angle)
+    elif operation == "cos^-1 ":
+        result = math.acos(angle)
+    elif operation == "tan^-1 ":
+        result = math.atan(angle)
+    e.delete(0, END)
+    e.insert(0, str(result))
+
 def brackets(NUM):
     current = e.get()
     e.delete(0, END)
