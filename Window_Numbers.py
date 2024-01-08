@@ -162,3 +162,69 @@ eq_button.grid(row=5, column=1, columnspan=2)
     result = math.factorial(num)
     e.delete(0, END)
     e.insert(0, str(result))
+# def solve_cubic(a, b, c, d):
+#     # Cubic equation: ax^3 + bx^2 + cx + d = 0
+#
+#     # Substitute x = y - b/(3a) to eliminate the quadratic term
+#     p = (3*a*c - b**2) / (3*a**2)
+#     q = (2*b**3 - 9*a*b*c + 27*a**2*d) / (27*a**3)
+#
+#     # Calculate discriminant
+#     delta = (q/2)**2 + (p/3)**3
+#
+#     # Calculate complex cube roots
+#     sqrt_delta = (-1)**0.5 * delta
+#     u1 = (q/2 + sqrt_delta)**(1/3)
+#     u2 = (q/2 - sqrt_delta)**(1/3)
+#
+#     # Calculate real roots
+#     y1 = u1 + u2 - b / (3*a)
+#     y2 = -(u1 + u2) / 2 - b / (3*a) + (u1 - u2) * (3**0.5) / 2j
+#     y3 = -(u1 + u2) / 2 - b / (3*a) - (u1 - u2) * (3**0.5) / 2j
+#
+#     return y1, y2, y3
+#
+# # Example
+# a = float(input("Enter the coefficient a: "))
+# b = float(input("Enter the coefficient b: "))
+# c = float(input("Enter the coefficient c: "))
+# d = float(input("Enter the coefficient d: "))
+#
+# solutions = solve_cubic(a, b, c, d)
+#
+# print(f"Solutions for the cubic equation: {solutions}")
+
+# import math
+#
+# def solve_quadratic(a, b, c):
+#     # Quadratic equation: ax^2 + bx + c = 0
+#
+#     # Calculate the discriminant
+#     discriminant = b**2 - 4*a*c
+#
+#     # Check the nature of roots based on the discriminant
+#     if discriminant > 0:
+#         # Two distinct real roots
+#         root1 = (-b + math.sqrt(discriminant)) / (2*a)
+#         root2 = (-b - math.sqrt(discriminant)) / (2*a)
+#         return root1, root2
+#     elif discriminant == 0:
+#         # One real root (double root)
+#         root = -b / (2*a)
+#         return root,
+#     else:
+#         # Complex conjugate roots
+#         real_part = -b / (2*a)
+#         imag_part = math.sqrt(abs(discriminant)) / (2*a)
+#         root1 = complex(real_part, imag_part)
+#         root2 = complex(real_part, -imag_part)
+#         return root1, root2
+#
+# # Example
+# a = float(input("Enter the coefficient a: "))
+# b = float(input("Enter the coefficient b: "))
+# c = float(input("Enter the coefficient c: "))
+#
+# solutions = solve_quadratic(a, b, c)
+#
+# print(f"Solutions for the quadratic equation: {solutions}")
