@@ -269,7 +269,7 @@ def main():
     global result
     text = e.get()
     operation = text[0:3]
-    angle = int(text[3:])
+    angle = int(text[3:-1])
     if operation == "sin":
         result = math.sin(angle)
     elif operation == "cos":
