@@ -78,6 +78,41 @@ def add_button():
     e.delete(0, END)
     symbol = "+"
 
+def sub_button():
+    """
+    This is the function for the add button. It save the value on the calculator and tells the equals button how to react
+    :return:
+    """
+    first_number = e.get()
+    global f_num
+    global symbol
+    f_num = eval(first_number)
+    e.delete(0, END)
+    symbol = "-"
+
+def multi_button():
+    """
+    This is the function for the add button. It save the value on the calculator and tells the equals button how to react
+    :return:
+    """
+    first_number = e.get()
+    global f_num
+    global symbol
+    f_num = eval(first_number)
+    e.delete(0, END)
+    symbol = "*"
+
+def divide_button():
+    """
+    This is the function for the add button. It save the value on the calculator and tells the equals button how to react
+    :return:
+    """
+    first_number = e.get()
+    global f_num
+    global symbol
+    f_num = eval(first_number)
+    e.delete(0, END)
+    symbol = "/"
 def SCT(num):
     current = e.get()
     e.delete(0, END)
@@ -134,6 +169,18 @@ def equals_button():
         num = eval(text[0:b1])
         e.delete(0, END)
         e.insert(0, str(math.factorial(num)))
+    elif symbol == "/":
+        second_number = eval(e.get())
+        e.delete(0, END)
+        e.insert(0, str(f_num / second_number))
+    elif symbol == "*":
+        second_number = eval(e.get())
+        e.delete(0, END)
+        e.insert(0, str(f_num * second_number))
+    elif symbol == "-":
+        second_number = eval(e.get())
+        e.delete(0, END)
+        e.insert(0, str(f_num - second_number))
 
 
 
@@ -157,6 +204,15 @@ button_sqrt.grid(row=1, column=5)
 
 button_add = Button(window, text='+', padx=40, pady=20, command= add_button)
 button_add.grid(row=5, column=0)
+
+button_sub = Button(window, text='-', padx=40, pady=20, command= sub_button)
+button_sub.grid(row=5, column=5)
+
+button_mul = Button(window, text='*', padx=40, pady=20, command= multi_button)
+button_mul.grid(row=4, column=5)
+
+button_div = Button(window, text='/', padx=40, pady=20, command= divide_button)
+button_div.grid(row=3, column=5)
 
 eq_button = Button(window, text='=', padx=100, pady=20, command= equals_button)
 eq_button.grid(row=5, column=1, columnspan=2)
