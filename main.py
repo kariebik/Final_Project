@@ -114,6 +114,11 @@ def divide_button():
     e.delete(0, END)
     symbol = "/"
 def SCT(num):
+    """
+      this adds to the entry and changes the symbol to sct
+      :param NUM: what is being added
+      :return:
+      """
     current = e.get()
     e.delete(0, END)
     e.insert(0, current + num)
@@ -121,6 +126,11 @@ def SCT(num):
     symbol = "sct"
 
 def ISCT(num):
+    """
+      this adds to the entry and changes the symbol to isct
+      :param NUM: what is being added
+      :return:
+      """
     current = e.get()
     e.delete(0, END)
     e.insert(0, current + num)
@@ -185,6 +195,11 @@ def equals_button():
 
 
 def sqrt_button(num):
+    """
+      this adds to the entry and changes the symbol to sqrt
+      :param NUM: what is being added
+      :return:
+      """
     current = e.get()
     e.delete(0, END)
     e.insert(0, current + num)
@@ -192,6 +207,11 @@ def sqrt_button(num):
     symbol = "sqrt"
 
 def curt_button(num):
+    """
+      this adds to the entry and changes the symbol to curt
+      :param NUM: what is being added
+      :return:
+      """
     current = e.get()
     e.delete(0, END)
     e.insert(0, current + num)
@@ -208,7 +228,7 @@ button_add.grid(row=5, column=0)
 button_sub = Button(window, text='-', padx=40, pady=20, command= sub_button)
 button_sub.grid(row=5, column=5)
 
-button_mul = Button(window, text='*', padx=40, pady=20, command= multi_button)
+button_mul = Button(window, text='X', padx=40, pady=20, command= multi_button)
 button_mul.grid(row=4, column=5)
 
 button_div = Button(window, text='/', padx=40, pady=20, command= divide_button)
@@ -222,6 +242,11 @@ button_pi.grid(row=1, column=4)
 
 button_e = Button(window, text='e', padx=40, pady=20, command= lambda: click_button(str(math.e)))
 def switch_button():
+    """
+    This is the function for the first switch button. It remove buttons and adds their replacements. It also removes itself
+    and adds switch button2.
+    :return:
+    """
     button_pi.grid_remove()
     button_factorial.grid_remove()
     button_sqrt.grid_remove()
@@ -243,6 +268,11 @@ def switch_button():
 
 
 def switch_button2():
+    """
+     This is the function for the second switch button. It remove buttons and adds their replacements. It also removes itself
+     and adds switch button1.
+     :return:
+     """
     button_xy.grid_remove()
     button_e.grid_remove()
     button_x3.grid_remove()
@@ -266,6 +296,10 @@ shift2 = Button(window, text= 'shift', padx=40, pady=20, command= switch_button2
 
 shift.grid(row=2, column=4)
 def main():
+    """
+       this is a function sin, cos and tan. It is make the value of sin cos and type with the degree that you input
+       :return:
+       """
     global result
     text = e.get()
     operation = text[0:3]
@@ -326,6 +360,11 @@ button_log = Button(window, text='log', padx=40, pady=20, command=log_button)
 button_log.grid(row=4, column=4)
 
 def power(NUM):
+    """
+    this adds to the entry and changes the symbol to ^
+    :param NUM: what is being added
+    :return:
+    """
     current = e.get()
     e.delete(0, END)
     e.insert(0, current + NUM)
