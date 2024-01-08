@@ -89,6 +89,14 @@ def equals_button():
         second_number = math.sqrt(int(num[1:]))
         e.delete(0, END)
         e.insert(0, str(second_number))
+    elif symbol == "()":
+        log = e.get()
+        b1 = log.find("(")
+        b2 = log.find(")")
+        base = int(log[3: b1])
+        num = eval(log[b1+1:b2])
+        e.delete(0, END)
+        e.insert(0, str(math.log(num, base)))
 
 def sqrt_button(num):
     current = e.get()
@@ -142,5 +150,19 @@ def main():
         result = math.tan(angle)
     e.delete(0, END)
     e.insert(0, str(result))
+    def brackets(NUM):
+        current = e.get()
+        e.delete(0, END)
+        e.insert(0, current + NUM)
+        global symbol
+        symbol = "()"
+eq_button = Button(window, text='=', padx=100, pady=20, command= equals_button)
+eq_button.grid(row=5, column=1, columnspan=2)
+open_bracket_button = Button(window, text='(', padx=40, pady=20, command= lambda: brackets("("))
+open_bracket_button.grid(row=5, column=3)
+close_bracket_button = Button(window, text=')', padx=40, pady=20, command= lambda: brackets(")"))
+close_bracket_button.grid(row=5, column=4)
+
+logx_button = Button(window, text='logx', padx=40, pady=20, command= lambda: brackets("log"))
 
 window.mainloop()
