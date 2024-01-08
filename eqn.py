@@ -12,7 +12,7 @@ e.grid(row=0, column=0, columnspan=4, padx=10, pady=10)  # This places e within 
 
 def click_button(num):
     """
-    This function will act as the command for multiple buttons and allows the user to input values using button 
+    This function will act as the command for multiple buttons and allows the user to input values using button
     :param num: the symbol associated with said button
     :return: inserts the symbol with previous text
     """
@@ -22,9 +22,9 @@ def click_button(num):
 
 def clear_button():
     """
-    This is the command for the clear button 
+    This is the command for the clear button
     It empties e (the entry space on the window)
-    :return: 
+    :return:
     """
     e.delete(0, END)
 
@@ -278,5 +278,114 @@ button_factorial.grid(row=4, column=3)
 button_x2 = Button(window, text='x^2', padx=40, pady=20, command=lambda: power("^2"))
 button_x3 = Button(window, text='x^3', padx=40, pady=20, command=lambda: power("^3"))
 button_x2.grid(row=3, column=4)
+def solve_cubic(a, b, c, d):
+    p = (3*a*c - b**2) / (3*a**2)
+    q = (2*b**3 - 9*a*b*c + 27*a**2*d) / (27*a**3)
+    delta = (q/2)**2 + (p/3)**3
+    sqrt_delta = (-1)**0.5 * delta
+    u1 = (q/2 + sqrt_delta)**(1/3)
+    u2 = (q/2 - sqrt_delta)**(1/3)
+    y1 = u1 + u2 - b / (3*a)
+    y2 = -(u1 + u2) / 2 - b / (3*a) + (u1 - u2) * (3**0.5) / 2j
+    y3 = -(u1 + u2) / 2 - b / (3*a) - (u1 - u2) * (3**0.5) / 2j
+    return y1, y2, y3
+
+def solve_quadratic(a, b, c):
+    discriminant = b**2 - 4*a*c
+    if discriminant > 0:
+        root1 = (-b + math.sqrt(discriminant)) / (2*a)
+        root2 = (-b - math.sqrt(discriminant)) / (2*a)
+        return root1, root2
+    elif discriminant == 0:
+        root = -b / (2*a)
+        return root,
+    else:
+        return "No Roots"
+
+def eqn_button():
+    window_eqn = Tk()
+    window_eqn.title("Equation Solver")
+
+    lbl_instruction = Label(window_eqn, text="Choose the type of equation:")
+    lbl_instruction.grid(row=0, column=0, columnspan=2, pady=5)
+
+    btn_quadratic = Button(window_eqn, text="Quadratic", command=solve_quadratic_window)
+    btn_quadratic.grid(row=1, column=0, padx=5, pady=5)
+
+    btn_cubic = Button(window_eqn, text="Cubic", command=solve_cubic_window)
+    btn_cubic.grid(row=1, column=1, padx=5, pady=5)
+
+def solve_quadratic_window():
+    window_quadratic = Tk()
+    window_quadratic.title("Quadratic Solver")
+
+    lbl_a = Label(window_quadratic, text="Enter coefficient a:")
+    lbl_a.grid(row=0, column=0)
+    entry_a = Entry(window_quadratic, width=10)
+    entry_a.grid(row=0, column=1, padx=5, pady=5)
+
+    lbl_b = Label(window_quadratic, text="Enter coefficient b:")
+    lbl_b.grid(row=1, column=0)
+    entry_b = Entry(window_quadratic, width=10)
+    entry_b.grid(row=1, column=1, padx=5, pady=5)
+
+    lbl_c = Label(window_quadratic, text="Enter coefficient c:")
+    lbl_c.grid(row=2, column=0)
+    entry_c = Entry(window_quadratic, width=10)
+    entry_c.grid(row=2, column=1, padx=5, pady=5)
+
+    def calculate_quadratic():
+        a = float(entry_a.get())
+        b = float(entry_b.get())
+        c = float(entry_c.get())
+        roots = solve_quadratic(a, b, c)
+        result_label.config(text=f"Roots: {roots}")
+
+    btn_calculate = Button(window_quadratic, text="Calculate", command=calculate_quadratic)
+    btn_calculate.grid(row=3, column=0, columnspan=2, pady=5)
+
+    result_label = Label(window_quadratic, text="")
+    result_label.grid(row=4, column=0, columnspan=2, pady=5)
+
+def solve_cubic_window():
+    window_cubic = Tk()
+    window_cubic.title("Cubic Solver")
+
+    lbl_a = Label(window_cubic, text="Enter coefficient a:")
+    lbl_a.grid(row=0, column=0)
+    entry_a = Entry(window_cubic, width=10)
+    entry_a.grid(row=0, column=1, padx=5, pady=5)
+
+    lbl_b = Label(window_cubic, text="Enter coefficient b:")
+    lbl_b.grid(row=1, column=0)
+    entry_b = Entry(window_cubic, width=10)
+    entry_b.grid(row=1, column=1, padx=5, pady=5)
+
+    lbl_c = Label(window_cubic, text="Enter coefficient c:")
+    lbl_c.grid(row=2, column=0)
+    entry_c = Entry(window_cubic, width=10)
+    entry_c.grid(row=2, column=1, padx=5, pady=5)
+
+    lbl_d = Label(window_cubic, text="Enter coefficient d:")
+    lbl_d.grid(row=3, column=0)
+    entry_d = Entry(window_cubic, width=10)
+    entry_d.grid(row=3, column=1, padx=5, pady=5)
+
+    def calculate_cubic():
+        a = float(entry_a.get())
+        b = float(entry_b.get())
+        c = float(entry_c.get())
+        d = float(entry_d.get())
+        roots = solve_cubic(a, b, c, d)
+        result_label.config(text=f"Roots: {roots}")
+
+    btn_calculate = Button(window_cubic, text="Calculate", command=calculate_cubic)
+    btn_calculate.grid(row=4, column=0, columnspan=2, pady=5)
+
+    result_label = Label(window_cubic, text="")
+    result_label.grid(row=5, column=0, columnspan=2, pady=5)
+eqn_button = Button(window, text='eqn', padx=40, pady=20, command=eqn_button)
+eqn_button.grid(row=5, column=3)
+
 
 window.mainloop()
