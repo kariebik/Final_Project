@@ -106,6 +106,11 @@ def equals_button():
         e.insert(0, str(math.log(num, base)))
     elif symbol == "sct":
         main()
+    elif symbol == "curt":
+        num = e.get()
+        second_number = math.cbrt(int(num[2:]))
+        e.delete(0, END)
+        e.insert(0, str(second_number))
 
 def sqrt_button(num):
     current = e.get()
@@ -114,7 +119,15 @@ def sqrt_button(num):
     global symbol
     symbol = "sqrt"
 
+def curt_button(num):
+    current = e.get()
+    e.delete(0, END)
+    e.insert(0, current + num)
+    global symbol
+    symbol = "curt"
+
 button_sqrt = Button(window, text='√', padx=40, pady=20, command= lambda: sqrt_button("√"))
+button_crt = Button(window, text='3√', padx=40, pady=20, command= lambda: curt_button("3√"))
 button_sqrt.grid(row=1, column=5)
 
 button_add = Button(window, text='+', padx=40, pady=20, command= add_button)
@@ -133,6 +146,7 @@ def switch_button():
     button_log.grid_remove()
     logx_button.grid(row=4, column=4)
     button_e.grid(row=1, column=4)
+    button_crt.grid(row=1, column=5)
     shift.grid_remove()
     shift2.grid(row=2, column=4)
 
