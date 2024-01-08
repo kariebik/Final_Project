@@ -1,11 +1,18 @@
 import math
-angle_in_degrees = 45
-angle_in_radians = math.radians(angle_in_degrees)
 
-sin_value = math.sin(angle_in_radians)
-cos_value = math.cos(angle_in_radians)
-tan_value = math.tan(angle_in_radians)
+def main():
+    global result
+    text = e.get()
+    operation = text[0:3]
+    angle = int(text[3: -1])
+    if operation == "sin":
+        result = math.sin(angle)
+    elif operation == "cos":
+        result = math.cos(angle)
+    elif operation == "tan":
+        result = math.tan(angle)
+    e.delete(0, END)
+    e.insert(0, str(result))
 
-print("The sin of", angle_in_degrees, "degrees is:", sin_value)
-print("The cos of", angle_in_degrees, "degrees is:", cos_value)
-print("The tan of", angle_in_degrees, "degrees is:", tan_value)
+if __name__ == "__main__":
+    main()

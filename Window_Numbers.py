@@ -79,15 +79,6 @@ eq_button = Button(window, text='=', padx=100, pady=20, command= equals_button)
 eq_button.grid(row=5, column=1, columnspan=2)
 
 import math
-
-def factorial_button():
-    num = int(e.get())
-    result = math.factorial(num)
-    e.delete(0, END)
-    e.insert(0, str(result))
-button_factorial = Button(window, text='factorial', padx=40, pady=20, command=factorial_button)
-
-button_factorial.grid(row=1, column=6)
 def log_button():
     global f_num
     f_num = eval(e.get())
@@ -97,6 +88,9 @@ def log_button():
 
 button_log = Button(window, text='log', padx=40, pady=20, command=log_button)
 button_log.grid(row=1, column=4)
+
+button_pi = Button(window, text='π', padx=40, pady=20, command= lambda: click_button(str(math.pi)))
+button_pi.grid(row=1, column=4)
 
 window.mainloop()
 
