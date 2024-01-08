@@ -85,6 +85,13 @@ def equals_button():
         e.delete(0, END)
         e.insert(0, str(f_num + second_number))
 
+def sqrt_button(num):
+    current = e.get()
+    e.delete(0, END)
+    e.insert(0, current + num)
+
+button_sqrt = Button(window, text='√', padx=40, pady=20, command= lambda: click_button("√"))
+button_sqrt.grid(row=1, column=5)
 
 button_add = Button(window, text='+', padx=40, pady=20, command= add_button)
 button_add.grid(row=5, column=0)
