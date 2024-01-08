@@ -145,7 +145,7 @@ def equals_button():
         log = e.get()
         b1 = log.find("(")
         b2 = log.find(")")
-        base = int(log[3: b1])
+        base = int(log[3: b1+1])
         num = eval(log[b1+1:b2])
         e.delete(0, END)
         e.insert(0, str(math.log(num, base)))
