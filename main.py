@@ -112,6 +112,7 @@ button_pi.grid(row=1, column=4)
 button_e = Button(window, text='e', padx=40, pady=20, command= lambda: click_button(str(math.e)))
 def switch_button():
     button_pi.grid_remove()
+    button_sqrt.grid_remove()
     button_e.grid(row=1, column=4)
     shift.grid_remove()
     shift2.grid(row=2, column=4)
@@ -120,6 +121,7 @@ def switch_button():
 def switch_button2():
     button_e.grid_remove()
     button_pi.grid(row=1, column=4)
+    button_sqrt.grid(row=1, column=5)
     shift2.grid_remove()
     shift.grid(row=2, column=4)
 
