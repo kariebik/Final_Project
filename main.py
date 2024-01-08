@@ -84,15 +84,20 @@ def equals_button():
         second_number = eval(e.get())
         e.delete(0, END)
         e.insert(0, str(f_num + second_number))
+    elif symbol == "sqrt":
+        num = e.get()
+        second_number = math.sqrt(int(num[1:]))
+        e.delete(0, END)
+        e.insert(0, str(second_number))
 
 def sqrt_button(num):
     current = e.get()
     e.delete(0, END)
     e.insert(0, current + num)
     global symbol
-    symbol = "√"
+    symbol = "sqrt"
 
-button_sqrt = Button(window, text='√', padx=40, pady=20, command= lambda: click_button("√"))
+button_sqrt = Button(window, text='√', padx=40, pady=20, command= lambda: sqrt_button("√"))
 button_sqrt.grid(row=1, column=5)
 
 button_add = Button(window, text='+', padx=40, pady=20, command= add_button)
@@ -134,6 +139,6 @@ def main():
     elif operation == "tan":
         result = math.tan(angle)
     e.delete(0, END)
-    e.insert(0, str(result)) c
+    e.insert(0, str(result))
 
 window.mainloop()
