@@ -12,7 +12,7 @@ e.grid(row=0, column=0, columnspan=4, padx=10, pady=10)  # This places e within 
 
 def click_button(num):
     """
-    This function will act as the command for multiple buttons and allows the user to input values using button 
+    This function will act as the command for multiple buttons and allows the user to input values using button
     :param num: the symbol associated with said button
     :return: inserts the symbol with previous text
     """
@@ -22,9 +22,9 @@ def click_button(num):
 
 def clear_button():
     """
-    This is the command for the clear button 
+    This is the command for the clear button
     It empties e (the entry space on the window)
-    :return: 
+    :return:
     """
     e.delete(0, END)
 
@@ -68,7 +68,7 @@ clear_button.grid(row=4, column=1, columnspan=2)
 
 def add_button():
     """
-    This is the function for the add button. It save the value on the calculator and tells the equals button how to react
+    This is the function for the add button. It saves the value on the calculator and tells the equals button how to react
     :return:
     """
     first_number = e.get()
@@ -249,13 +249,6 @@ close_bracket_button.grid(row=5, column=4)
 logx_button = Button(window, text='logx', padx=40, pady=20, command= lambda: brackets("log"))
 
 def log_button():
-    '''
-    This part of the code creates a log button. The user inputs a number first and than presses the button, and
-    the computer outputs the answer(The power of 10 such that 10^x = the number given by the user)
-    Using the shift button the user gets access to logx button. After pressing it, the user will enter the base
-    and the other number in the logarithm in brackets (logx(y)), and the computer will calculate the value
-    (The power of the base number such that (base number)^x=y
-    '''
     global f_num
     f_num = eval(e.get())
     result = math.log10(f_num)
@@ -273,10 +266,6 @@ def power(NUM):
     symbol = "^"
 
 def factorial_button(num):
-    '''
-    These lines of the code create a factorial button. Computer reads all the numbers before the "!" sign,
-    and outputs the factorial value of a given number
-    '''
     current = e.get()
     e.delete(0, END)
     e.insert(0, current + num)
@@ -289,12 +278,7 @@ button_factorial.grid(row=4, column=3)
 button_x2 = Button(window, text='x^2', padx=40, pady=20, command=lambda: power("^2"))
 button_x3 = Button(window, text='x^3', padx=40, pady=20, command=lambda: power("^3"))
 button_x2.grid(row=3, column=4)
-
-
 def solve_cubic(a, b, c, d):
-    '''
-    This is the code for solving a cubic equation
-    '''
     p = (3*a*c - b**2) / (3*a**2)
     q = (2*b**3 - 9*a*b*c + 27*a**2*d) / (27*a**3)
     delta = (q/2)**2 + (p/3)**3
@@ -307,10 +291,6 @@ def solve_cubic(a, b, c, d):
     return y1, y2, y3
 
 def solve_quadratic(a, b, c):
-    '''
-    This piece of code solves a quadratic equation
-    '''
-
     discriminant = b**2 - 4*a*c
     if discriminant > 0:
         root1 = (-b + math.sqrt(discriminant)) / (2*a)
@@ -323,10 +303,6 @@ def solve_quadratic(a, b, c):
         return "No Roots"
 
 def eqn_button():
-    '''
-    These lines of code create an eqn button. After user presses it a separate window with two buttons will appear
-    '''
-
     window_eqn = Tk()
     window_eqn.title("Equation Solver")
 
@@ -339,13 +315,7 @@ def eqn_button():
     btn_cubic = Button(window_eqn, text="Cubic", command=solve_cubic_window)
     btn_cubic.grid(row=1, column=1, padx=5, pady=5)
 
-
 def solve_quadratic_window():
-    '''
-    This piece of code creates a separate window for a quadratic equation. After pressing "quadratic" the user
-    will be asked to input a, b and c constants
-    '''
-
     window_quadratic = Tk()
     window_quadratic.title("Quadratic Solver")
 
@@ -365,10 +335,6 @@ def solve_quadratic_window():
     entry_c.grid(row=2, column=1, padx=5, pady=5)
 
     def calculate_quadratic():
-        '''
-        After the user inputs the constants, they will get roots as an output
-        '''
-
         a = float(entry_a.get())
         b = float(entry_b.get())
         c = float(entry_c.get())
@@ -381,13 +347,7 @@ def solve_quadratic_window():
     result_label = Label(window_quadratic, text="")
     result_label.grid(row=4, column=0, columnspan=2, pady=5)
 
-
 def solve_cubic_window():
-    '''
-    These lines of the code create a separate window for solving a cubic equation. After user presses "cubic"
-    they will be asked to input a, b, c and d constants
-    '''
-
     window_cubic = Tk()
     window_cubic.title("Cubic Solver")
 
@@ -411,12 +371,7 @@ def solve_cubic_window():
     entry_d = Entry(window_cubic, width=10)
     entry_d.grid(row=3, column=1, padx=5, pady=5)
 
-
     def calculate_cubic():
-        '''
-        After the user inputs the constants, they will get roots as an output
-        '''
-
         a = float(entry_a.get())
         b = float(entry_b.get())
         c = float(entry_c.get())
@@ -431,5 +386,6 @@ def solve_cubic_window():
     result_label.grid(row=5, column=0, columnspan=2, pady=5)
 eqn_button = Button(window, text='eqn', padx=40, pady=20, command=eqn_button)
 eqn_button.grid(row=5, column=3)
+
 
 window.mainloop()
