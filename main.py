@@ -89,6 +89,8 @@ def sqrt_button(num):
     current = e.get()
     e.delete(0, END)
     e.insert(0, current + num)
+    global symbol
+    symbol = "√"
 
 button_sqrt = Button(window, text='√', padx=40, pady=20, command= lambda: click_button("√"))
 button_sqrt.grid(row=1, column=5)
