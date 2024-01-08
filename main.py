@@ -270,6 +270,7 @@ def factorial_button(num):
     global symbol
     symbol = "!"
 
+
 button_factorial = Button(window, text="!", padx=40, pady=20, command=lambda: factorial_button("!"))
 button_factorial.grid(row=4, column=3)
 
