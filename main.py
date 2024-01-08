@@ -132,7 +132,9 @@ def equals_button():
         text =e.get()
         b1 = text.find("!")
         num = eval(text[0:b1])
-        math.factorial(num)
+        e.delete(0, END)
+        e.insert(0, str(math.factorial(num)))
+
 
 
 def sqrt_button(num):
