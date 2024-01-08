@@ -1,6 +1,10 @@
 import math
 
 def main():
+    """
+    this is a function sin, cos and tan. It is make the value of sin cos and type with the degree that you input
+    :return:
+    """
     global result
     text = e.get()
     operation = text[0:3]
