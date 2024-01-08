@@ -4,7 +4,6 @@ import math
 class ScientificCalculator(tk.Tk):
     def init(self):
         # Initialize the Tkinter window
-        super().init()
         self.title("Scientific Calculator")
         self.geometry("400x500")
 
@@ -17,9 +16,9 @@ class ScientificCalculator(tk.Tk):
 
         # Define buttons with their labels and grid positions
         buttons = [
-            ("7", 1, 0), ("8", 1, 1), ("9", 1, 2), ("/", 3, 5),
-            ("4", 2, 0), ("5", 2, 1), ("6", 2, 2), ("*", 4, 5),
-            ("1", 3, 0), ("2", 3, 1), ("3", 3, 2), ("-", 5, 5),
+            ("7", 1, 0), ("8", 1, 1), ("9", 1, 2), ("/", 1, 3),
+            ("4", 2, 0), ("5", 2, 1), ("6", 2, 2), ("*", 2, 3),
+            ("1", 3, 0), ("2", 3, 1), ("3", 3, 2), ("-", 3, 3),
             ("0", 4, 0), (".", 4, 1), ("=", 4, 2), ("+", 4, 3),
             ("(", 5, 0), (")", 5, 1), ("Shift", 5, 2), ("AC", 5, 3)
         ]

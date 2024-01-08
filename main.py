@@ -223,12 +223,14 @@ button_pi.grid(row=1, column=4)
 button_e = Button(window, text='e', padx=40, pady=20, command= lambda: click_button(str(math.e)))
 def switch_button():
     button_pi.grid_remove()
+    button_factorial.grid_remove()
     button_sqrt.grid_remove()
     button_log.grid_remove()
     button_sin.grid_remove()
     button_cos.grid_remove()
     button_tan.grid_remove()
     button_x2.grid_remove()
+    button_xy.grid(row=4, column=3)
     button_x3.grid(row=3, column=4)
     button_isin.grid(row=1, column=3)
     button_icos.grid(row=2, column=3)
@@ -241,6 +243,7 @@ def switch_button():
 
 
 def switch_button2():
+    button_xy.grid_remove()
     button_e.grid_remove()
     button_x3.grid_remove()
     logx_button.grid_remove()
@@ -248,6 +251,7 @@ def switch_button2():
     button_icos.grid_remove()
     button_itan.grid_remove()
     button_x2.grid(row=3, column=4)
+    button_factorial.grid(row=4, column=3)
     button_log.grid(row=4, column=4)
     button_sin.grid(row=1, column=3)
     button_cos.grid(row=2, column=3)
@@ -342,6 +346,7 @@ def factorial_button(num):
 button_factorial = Button(window, text="!", padx=40, pady=20, command=lambda: factorial_button("!"))
 button_factorial.grid(row=4, column=3)
 
+button_xy = Button(window, text='x^y', padx=40, pady=20, command=lambda: power("^"))
 button_x2 = Button(window, text='x^2', padx=40, pady=20, command=lambda: power("^2"))
 button_x3 = Button(window, text='x^3', padx=40, pady=20, command=lambda: power("^3"))
 button_x2.grid(row=3, column=4)
