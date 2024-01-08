@@ -39,9 +39,9 @@ button7 = Button(window, text='7', padx=40, pady=20, command= lambda: click_butt
 button8 = Button(window, text='8', padx=40, pady=20, command= lambda: click_button('8'))
 button9 = Button(window, text='9', padx=40, pady=20, command= lambda: click_button('9'))
 button0 = Button(window, text='0', padx=40, pady=20, command= lambda: click_button('0'))
-button_sin = Button(window, text='sin', padx=40, pady=20, command= lambda: click_button('sin'))
-button_cos = Button(window, text='cos', padx=40, pady=20, command= lambda: click_button('cos'))
-button_tan = Button(window, text='tan', padx=40, pady=20, command= lambda: click_button('tan'))
+button_sin = Button(window, text='sin', padx=40, pady=20, command= lambda: SCT('sin'))
+button_cos = Button(window, text='cos', padx=40, pady=20, command= lambda: SCT('cos'))
+button_tan = Button(window, text='tan', padx=40, pady=20, command= lambda: SCT('tan'))
 clear_button = Button(window, text='Clear', padx=90, pady=20, command= clear_button)
 
 button1.grid(row=3, column=0)  # This places button within the window at a specified place
@@ -75,6 +75,13 @@ def add_button():
     e.delete(0, END)
     symbol = "+"
 
+def SCT(num):
+    current = e.get()
+    e.delete(0, END)
+    e.insert(0, current + num)
+    global symbol
+    symbol = "sct"
+
 def equals_button():
     """
     This is the command for the equals button. Its action changes depending on the value of symbol to know how to react to the previous button.
@@ -97,6 +104,8 @@ def equals_button():
         num = eval(log[b1+1:b2])
         e.delete(0, END)
         e.insert(0, str(math.log(num, base)))
+    elif symbol == "sct":
+        main()
 
 def sqrt_button(num):
     current = e.get()
@@ -121,6 +130,8 @@ button_e = Button(window, text='e', padx=40, pady=20, command= lambda: click_but
 def switch_button():
     button_pi.grid_remove()
     button_sqrt.grid_remove()
+    button_log.grid_remove()
+    logx_button.grid(row=4, column=4)
     button_e.grid(row=1, column=4)
     shift.grid_remove()
     shift2.grid(row=2, column=4)
@@ -128,6 +139,8 @@ def switch_button():
 
 def switch_button2():
     button_e.grid_remove()
+    logx_button.grid_remove()
+    button_log.grid(row=4, column=4)
     button_pi.grid(row=1, column=4)
     button_sqrt.grid(row=1, column=5)
     shift2.grid_remove()
@@ -141,7 +154,7 @@ def main():
     global result
     text = e.get()
     operation = text[0:3]
-    angle = int(text[3: -1])
+    angle = int(text[3:])
     if operation == "sin":
         result = math.sin(angle)
     elif operation == "cos":
@@ -150,12 +163,12 @@ def main():
         result = math.tan(angle)
     e.delete(0, END)
     e.insert(0, str(result))
-    def brackets(NUM):
-        current = e.get()
-        e.delete(0, END)
-        e.insert(0, current + NUM)
-        global symbol
-        symbol = "()"
+def brackets(NUM):
+    current = e.get()
+    e.delete(0, END)
+    e.insert(0, current + NUM)
+    global symbol
+    symbol = "()"
 eq_button = Button(window, text='=', padx=100, pady=20, command= equals_button)
 eq_button.grid(row=5, column=1, columnspan=2)
 open_bracket_button = Button(window, text='(', padx=40, pady=20, command= lambda: brackets("("))
@@ -164,5 +177,15 @@ close_bracket_button = Button(window, text=')', padx=40, pady=20, command= lambd
 close_bracket_button.grid(row=5, column=4)
 
 logx_button = Button(window, text='logx', padx=40, pady=20, command= lambda: brackets("log"))
+
+def log_button():
+    global f_num
+    f_num = eval(e.get())
+    result = math.log10(f_num)
+    e.delete(0, END)
+    e.insert(0, str(result))
+
+button_log = Button(window, text='log', padx=40, pady=20, command=log_button)
+button_log.grid(row=4, column=4)
 
 window.mainloop()
