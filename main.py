@@ -165,7 +165,7 @@ def switch_button():
     button_cos.grid_remove()
     button_tan.grid_remove()
     button_x2.grid_remove()
-    button_xy.grid(row=3, column=4)
+    button_x3.grid(row=3, column=4)
     button_isin.grid(row=1, column=3)
     button_icos.grid(row=2, column=3)
     button_itan.grid(row=3, column=3)
@@ -178,7 +178,7 @@ def switch_button():
 
 def switch_button2():
     button_e.grid_remove()
-    button_xy.grid_remove()
+    button_x3.grid_remove()
     logx_button.grid_remove()
     button_isin.grid_remove()
     button_icos.grid_remove()
@@ -258,6 +258,6 @@ def power(NUM):
     symbol = "^"
 
 button_x2 = Button(window, text='x^2', padx=40, pady=20, command=lambda: power("^2"))
-button_xy = Button(window, text='x^y', padx=40, pady=20, command=lambda: power("^"))
+button_x3 = Button(window, text='x^3', padx=40, pady=20, command=lambda: power("^3"))
 button_x2.grid(row=3, column=4)
 window.mainloop()
