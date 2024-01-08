@@ -432,7 +432,4 @@ def solve_cubic_window():
 eqn_button = Button(window, text='eqn', padx=40, pady=20, command=eqn_button)
 eqn_button.grid(row=2, column=5)
 
-
-
-
 window.mainloop()
