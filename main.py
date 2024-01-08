@@ -274,7 +274,7 @@ def power(NUM):
 
 def factorial_button(num):
     '''
-    These lines of the code create a factorial button. Computer reads all the numbers before the "!" sign,
+    These lines of the code create a factorial button. It changes the symbol to "!",so computer reads all the numbers before the "!" sign,
     and outputs the factorial value of a given number
     '''
     current = e.get()
