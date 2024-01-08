@@ -134,6 +134,6 @@ def main():
     elif operation == "tan":
         result = math.tan(angle)
     e.delete(0, END)
-    e.insert(0, str(result))
+    e.insert(0, str(result)) c
 
 window.mainloop()
